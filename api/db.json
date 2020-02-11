@@ -1,34 +1,32 @@
 {
-  "users": [{
-    "id": 1,
-    "firstName": "Bill",
-    "lastName": "Gates",
-    "email": "bill@microsoft.com"
-  },
+  "sounds": [
+    {
+      "id": 1,
+      "singer": "Eminem",
+      "song": "Mockingbird",
+      "genre": "Rap",
+      "year": "2004"
+    },
     {
       "id": 2,
-      "firstName": "Mark",
-      "lastName": "Zuckerberg",
-      "email": "mark@facebook.com"
+      "singer": "System of a down",
+      "song": "Toxicity",
+      "genre": "Rock",
+      "year": "2005"
     },
     {
       "id": 3,
-      "firstName": "Jeff",
-      "lastName": "Bezos",
-      "email": "jeff@amazon.com"
-    }
-  ],
-  "companies": [{
-    "id": 1,
-    "name": "Microsoft"
-  },
-    {
-      "id": 2,
-      "name": "Facebook"
+      "singer": "Meg Myers",
+      "song": "Desire",
+      "genre": "Pop",
+      "year": "2013"
     },
     {
-      "id": 3,
-      "name": "Amazon"
+      "id": 4,
+      "singer": "AC/DC",
+      "song": "Highway to hell",
+      "genre": "Heavy metal",
+      "year": "1979"
     }
   ]
 
