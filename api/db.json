@@ -3,30 +3,29 @@
     {
       "id": 1,
       "singer": "Eminem",
-      "song": "Mockingbird",
+      "song": [
+        "Mockingbird", "When I'm gone", "Sing for the moment"
+      ],
       "genre": "Rap",
       "year": "2004"
     },
     {
       "id": 2,
       "singer": "System of a down",
-      "song": "Toxicity",
+      "song": [
+        "Toxicity", "Aerials", "B.Y.O.B"
+      ],
       "genre": "Rock",
-      "year": "2005"
+      "year": "2004"
     },
     {
       "id": 3,
-      "singer": "Meg Myers",
-      "song": "Desire",
-      "genre": "Pop",
-      "year": "2013"
-    },
-    {
-      "id": 4,
-      "singer": "AC/DC",
-      "song": "Highway to hell",
-      "genre": "Heavy metal",
-      "year": "1979"
+      "singer": "Rammstein",
+      "song": [
+        "Rosenrot", "Ohne dich", "Rammstein"
+      ],
+      "genre": "Rock",
+      "year": "2004"
     }
   ]
 

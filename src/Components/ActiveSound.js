@@ -10,13 +10,9 @@ export default ({data, active}) => {
         <div>
             <Card style={{ width: '200px' }} className='mx-auto'>
                 <Card.Body>
-                    <Card.Title className='text-center'>
-                        {sound.song}
-                    </Card.Title>
+                    <Card.Title>{sound.singer}</Card.Title>
                     <Card.Text>
-                        Singer: {sound.singer}<br/>
                         Genre: {sound.genre}<br/>
-                        Year: {sound.year}
                     </Card.Text>
                 </Card.Body>
             </Card>

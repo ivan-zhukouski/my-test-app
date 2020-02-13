@@ -1,8 +1,9 @@
 import  React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
-import SoundList from './Components/SoundList';
-import ActiveSound from './Components/ActiveSound';
-import FilterComponent from './Components/FilterComponent';
+import SoundList from './Components/SoundList'
+import ActiveSound from './Components/ActiveSound'
+import FilterComponent from './Components/FilterComponent'
+import _ from 'lodash'
 
 const url = 'http://localhost:4000/sounds';
 
@@ -12,6 +13,8 @@ export default class App extends Component {
         this.state = {
             data: null,
             active: 0,
+            sort:'asc',
+            sortField: 'id',
         };
     }
 componentDidMount() {
@@ -35,12 +38,22 @@ componentDidMount() {
     updateData(config) {
         this.setState(config);
     }
-
+    onSort = sortField => {
+        const cloneData = this.state.data.concat();
+        const sortType = this.state.sort === 'asc' ? 'desc' : 'asc';
+        const orderedData = _.orderBy(cloneData, sortField, sortType);
+        this.setState({
+            data: orderedData,
+            sort: sortType,
+            sortField
+        })
+    };
     render() {
+        console.log(this.state.data);
         return(
-            <div>
+            <div className='container'>
               <div className='d-flex'>
-                  <SoundList data={this.state.data} update={this.updateData.bind(this)} />
+                  <SoundList onSort={this.onSort} data={this.state.data} update={this.updateData.bind(this)} />
                   <FilterComponent data={this.state.data} />
               </div>
               <ActiveSound data={this.state.data} active={this.state.active} />
