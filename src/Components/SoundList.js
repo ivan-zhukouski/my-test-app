@@ -13,10 +13,10 @@ export default ({data, update, onSort}) =>{
         <Table striped bordered hover>
             <thead>
             <tr>
-                <th onClick={onSort.bind(null, 'singer')}>Singer</th>
+                <th onClick={onSort.bind(null, 'singer')} className='pointer'>Singer</th>
                 <th>Song</th>
-                <th onClick={onSort.bind(null, 'genre')}>Genre</th>
-                <th onClick={onSort.bind(null, 'year')}>Year</th>
+                <th onClick={onSort.bind(null, 'genre')} className='pointer'>Genre</th>
+                <th onClick={onSort.bind(null, 'year')} className='pointer'>Year</th>
             </tr>
             </thead>
             <tbody>

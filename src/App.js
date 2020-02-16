@@ -4,6 +4,8 @@ import SoundList from './Components/SoundList'
 import ActiveSound from './Components/ActiveSound'
 import FilterComponent from './Components/FilterComponent'
 import _ from 'lodash'
+import './App.css'
+import ReactPaginate from 'react-paginate'
 
 const url = 'http://localhost:4000/sounds';
 
@@ -11,10 +13,12 @@ export default class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            data: null,
+            isModeSelected: false,
+            data: [],
             active: 0,
             sort:'asc',
             sortField: 'id',
+            currentPage: 0,
         };
     }
 componentDidMount() {
@@ -40,15 +44,15 @@ componentDidMount() {
     }
     onSort = sortField => {
         const cloneData = this.state.data.concat();
-        const sortType = this.state.sort === 'asc' ? 'desc' : 'asc';
-        const orderedData = _.orderBy(cloneData, sortField, sortType);
-        this.setState({
-            data: orderedData,
-            sort: sortType,
-            sortField
-        })
+        const sort = this.state.sort === 'asc' ? 'desc' : 'asc';
+        const data = _.orderBy(cloneData, sortField, sort);
+        this.setState({ data, sort, sortField })
     };
+    pageChangeHandler = ({selected}) => (
+        this.setState({currentPage: selected})
+    );
     render() {
+        const pageSize = 2;
         console.log(this.state.data);
         return(
             <div className='container'>
@@ -56,6 +60,27 @@ componentDidMount() {
                   <SoundList onSort={this.onSort} data={this.state.data} update={this.updateData.bind(this)} />
                   <FilterComponent data={this.state.data} />
               </div>
+                {
+                    this.state.data.length > pageSize ? <ReactPaginate
+                        previousLabel={'previous'}
+                        nextLabel={'next'}
+                        breakLabel={'...'}
+                        breakClassName={'break-me'}
+                        pageCount={5}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        onPageChange={this.pageChangeHandler}
+                        containerClassName={'pagination'}
+                        activeClassName={'active'}
+                        pageClassName="page-item"
+                        pageLinkClassName="page-link"
+                        previousClassName="page-item"
+                        nextClassName="page-item"
+                        previousLinkClassName="page-link"
+                        nextLinkClassName="page-link"
+                    /> : null
+                }
+
               <ActiveSound data={this.state.data} active={this.state.active} />
             </div>
         )
