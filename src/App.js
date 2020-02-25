@@ -6,6 +6,8 @@ import FilterComponent from './Components/FilterComponent'
 import _ from 'lodash'
 import './App.css'
 import ReactPaginate from 'react-paginate'
+import { actionSelectSinger } from './store/actions'
+
 
 const url = 'http://localhost:4000/sounds';
 
@@ -53,9 +55,12 @@ componentDidMount() {
     );
     render() {
         const pageSize = 2;
-        console.log(this.state.data);
+        const dispatch = this.props.dispatch;
         return(
             <div className='container'>
+                <input value={this.props.selectedSinger} onChange={(event)=>{
+                    dispatch(actionSelectSinger(event.target.value))
+                }} />
               <div className='d-flex'>
                   <SoundList onSort={this.onSort} data={this.state.data} update={this.updateData.bind(this)} />
                   <FilterComponent data={this.state.data} />
