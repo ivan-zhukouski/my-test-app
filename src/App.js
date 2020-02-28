@@ -58,7 +58,7 @@ componentDidMount() {
         const dispatch = this.props.dispatch;
         return(
             <div className='container'>
-                <input value={this.props.selectedSinger} onChange={(event)=>{
+                <input className="mb-3 mt-3" value={this.props.selectedSinger} onChange={(event)=>{
                     dispatch(actionSelectSinger(event.target.value))
                 }} />
               <div className='d-flex'>
@@ -66,7 +66,7 @@ componentDidMount() {
                   <FilterComponent data={this.state.data} />
               </div>
                 {
-                    this.state.data.length > pageSize ? <ReactPaginate
+                    this.state.data.length > pageSize && <ReactPaginate
                         previousLabel={'previous'}
                         nextLabel={'next'}
                         breakLabel={'...'}
@@ -83,9 +83,8 @@ componentDidMount() {
                         nextClassName="page-item"
                         previousLinkClassName="page-link"
                         nextLinkClassName="page-link"
-                    /> : null
+                    />
                 }
-
               <ActiveSound data={this.state.data} active={this.state.active} />
             </div>
         )

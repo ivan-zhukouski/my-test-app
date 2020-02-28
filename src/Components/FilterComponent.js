@@ -18,7 +18,7 @@ export default ({data}) => {
         }));
     };
     return (
-        <FormControl style={{width: '200px'}}>
+        <FormControl className="ml-3" style={{width: '200px'}}>
             <InputLabel shrink>Singer</InputLabel>
             <Select
                 value={state.singer}

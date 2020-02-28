@@ -9,13 +9,13 @@ export const ACTION_SELECT_SINGER = 'ACTION_SELECT_SINGER';
 
 const store = createStore(rootReducer);
 
-const mapStateToProps = (state)=>{
+const putStateToProps = (state)=>{
     console.log(state);
     return {
         selectedSinger: state.selectedSinger
     }
 };
-const WrappedAppComponent = connect(mapStateToProps)(App);
+const WrappedAppComponent = connect(putStateToProps)(App);
 
 ReactDOM.render(<Provider store={store}>
     <WrappedAppComponent/>

@@ -1,9 +1,9 @@
 import React from 'react'
 
 export default ({sound, update, index}) => {
-    const track = sound.song.map((item, indexx)=>{
+    const track = sound.song.map((item, index)=>{
         return(
-            <tr onClick={() => update({ active: index })} key={`key-${indexx}`}>
+            <tr onClick={() => update({ active: index })} key={`key-${index}`}>
                 <td>{sound.singer}</td>
                 <td>{item}</td>
                 <td>{sound.genre}</td>
